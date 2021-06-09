@@ -49,7 +49,7 @@ def main():
             combined_list = streamList + list2_items_not_in_list1
             # print(combined_list)
             userDict[userName] = sorted(combined_list)
-            print(userDict)
+            # print(userDict)
         elif(option == 2):
             # print("Based on the streamers you watch, here are some other streamers we think you would enjoy:")
             streamerDF = pd.read_csv('twitch_data.tsv', sep='\t')
@@ -74,7 +74,13 @@ def main():
                     if not dict1[i] in streamerDict[str(i)]:
                         streamerDict[str(i)].append(dict1[i])
 
-
+            # for i in streamerDict:
+            #     res = []
+            #     for j in streamerDict[i]:
+            #         if j not in res:
+            #             print(j)
+            #             res.append(j)
+            #     streamerDict[i] = res
             # print(streamerDict)
             strmrInDF = userDict[userName].copy()
             currUserSDict = {}
@@ -131,6 +137,8 @@ def main():
                         # break
             iterNum = 0
             for gameKey in mpGames:
+                if len(userMWGames) == iterNum:
+                    break
                 # print("Since you watch", end=" ")
                 print("Since", end=" ")
                 print(userMWGames[iterNum], end=" ")
