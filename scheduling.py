@@ -7,7 +7,7 @@ import csv
 from matplotlib import pyplot as plt
 
 sns.set()
-
+# if on linux, change the .\\ below to .//
 df = pd.read_csv(".\\twitch_data_time.tsv", sep='\t', quoting=csv.QUOTE_NONE)
 
 df['datetime'] = pd.to_datetime(df['time_created'], format='%Y-%m-%dT%H:%M:%SZ')
