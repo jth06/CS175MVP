@@ -8,7 +8,7 @@ from matplotlib import pyplot as plt
 
 sns.set()
 
-df = pd.read_csv(".\\twitch_data_time.tsv", sep='\t', quoting=csv.QUOTE_NONE)
+df = pd.read_csv("twitch_data_time.tsv", sep='\t', quoting=csv.QUOTE_NONE)
 
 df['datetime'] = pd.to_datetime(df['time_created'], format='%Y-%m-%dT%H:%M:%SZ')
 #df['week'] = df['datetime'].dt.to_period('W')
