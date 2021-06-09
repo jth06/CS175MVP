@@ -12,8 +12,8 @@ dfs = []
 for file in listdir(path):
     #print(file)
     df = pd.read_csv(path + "\\" + file, sep='\t', header=None, names=header, quoting=csv.QUOTE_NONE, index_col=None)
-    df1 = df[['game_name', 'broadcaster_id', 'broadcaster_name', 'follower_number', 'broadcaster_language']]
-    dfs.append(df1)
+    df1 = df[['game_name', 'current_views', 'broadcaster_id', 'broadcaster_name', 'follower_number', 'broadcaster_language']]
+    dfs.append(df1[df1.current_views > 50])
 
 df_all = pd.concat(dfs, ignore_index=True)
 
