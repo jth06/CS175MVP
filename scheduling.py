@@ -27,27 +27,32 @@ def streams_views_hourly(df, language=None):
 languages = (df['broadcaster_language'].value_counts().to_dict())
 
 def menu(): 
-    print("Please choose an option.")
-    print("1) Show stream views by hour.")
-    print("2) Show streams views by hour, filtered by language.")
-    print("3) Show language tags.")
+    exit = False
+    while not exit:
+        print("Please choose an option.")
+        print("0) Exit.")
+        print("1) Show stream views by hour.")
+        print("2) Show streams views by hour, filtered by language.")
+        print("3) Show language tags.")
 
-    option = int(input())
+        option = int(input())
 
-    if (option == 1):
-        streams_views_hourly(df)
-    elif (option == 2):
-        valid = False
-        while not valid:
-            print("Please enter the language tag you wish to filter by: ", end=" ")
-            language = str(input()).lower()
-            if language in languages:
-                valid = True
-        streams_views_hourly(df, language)
-    elif (option == 3):
-        print('Language : # of Channels')
-        for language in languages:
-            print(language + '\t : ' + str(languages[language]))
+        if (option == 1):
+            streams_views_hourly(df)
+        elif (option == 2):
+            valid = False
+            while not valid:
+                print("Please enter the language tag you wish to filter by: ", end=" ")
+                language = str(input()).lower()
+                if language in languages:
+                    valid = True
+            streams_views_hourly(df, language)
+        elif (option == 3):
+            print('Language : # of Channels')
+            for language in languages:
+                print(language + '\t : ' + str(languages[language]))
+        elif (option == 0):
+            exit = True
 						
 if __name__ == "__main__":
     menu()
