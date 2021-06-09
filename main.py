@@ -160,12 +160,6 @@ def main():
                 print()
                 iterNum += 1
 
-
-            
-
-            
-
-
     # Case where a new user has been entered
     else:
         print("Hello", end=" ")
